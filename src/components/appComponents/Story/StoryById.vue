@@ -40,8 +40,8 @@ export default defineComponent({
 </script>
 
 <template>
-  <ButtonComponent buttonLabel="Voltar" @onClick="goToHome" />
-  <div v-if="story">
+  <ButtonComponent buttonLabel="Voltar" @click="goToHome" />
+  <div v-if="story" class="c-white">
     <h2>{{ story.title }}</h2>
     <p>Por: {{ story.by }}</p>
     <p>Pontuação: {{ story.score }}</p>

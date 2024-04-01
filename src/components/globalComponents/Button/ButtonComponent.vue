@@ -17,12 +17,17 @@ export default {
       default: ''
     },
     onClick: {
-      type: Function,
+      type: Function as PropType<() => void>,
       default: () => {}
     },
     style: {
       type: String as PropType<Style>,
       default: Style.Default
+    }
+  },
+  methods: {
+    clickHandler() {
+      this.onClick()
     }
   }
 }
