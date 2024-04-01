@@ -60,24 +60,6 @@ Visão geral de como as pastas estão organizadas no projeto:
 ├─ vite.config.ts
 └─ ...
 
-/
-|-- src/
-| |-- assets/ # Imagens, estilos globais e outros recursos estáticos
-| |-- components/  
-| | |-- appComponents / # Componentes específicos de cada tela
-| | |-- globalComponents / # Componentes Vue reutilizáveis
-| |-- services/ # Serviços para interagir com APIs e outras funcionalidades
-| |-- store/ # Vuex store, módulos e definições de estado
-| | |-- modules / # Módulo de cada service
-| |-- views/ # Componentes Vue que representam as páginas
-| `-- App.vue
-|   `-- main.ts
-|-- tests/ # Testes automatizados com Playwright
-|-- public/ # Arquivos estáticos como index.html
-|-- node_modules/ # Dependências do projeto
-|-- README.md
-|-- package.json
-
 ## Testes
 
 Os testes são escritos usando Playwright. Para executar os testes, use:
