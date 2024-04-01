@@ -1,0 +1,20 @@
+.button-component {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.6rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  &.button {
+    &--default {
+      color: var(--disabled);
+      background-color: var(--deep-blue-300);
+
+      &:hover {
+        background-color: var(--deep-blue-300);
+        color: var(--deep-blue-100);
+        font-weight: 600;
+      }
+    }
+  }
+}

@@ -1,0 +1,38 @@
+.table-search {
+  color: var(--text-color-light);
+
+  select {
+    background-color: var(--deep-blue-300);
+    color: var(--white);
+    border: none;
+    border-radius: 3px;
+    padding: 0.25rem;
+    outline: none;
+    &:active,
+    &:focus {
+      border: none;
+    }
+    .select-option {
+      &:hover {
+        background-color: var(--deep-blue-300);
+      }
+    }
+  }
+  form {
+    .search-input {
+      border: none;
+      border-radius: 3px;
+      background-color: var(--deep-blue-300);
+      padding: 0.25rem 1rem 0.25rem 2rem;
+      color: var(--white);
+      font-size: 0.8rem;
+      &::placeholder {
+        color: var(--disabled);
+        font-size: 0.8rem;
+      }
+    }
+    img {
+      filter: invert(1);
+    }
+  }
+}

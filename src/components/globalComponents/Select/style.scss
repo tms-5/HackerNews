@@ -1,0 +1,50 @@
+.select-component {
+  font-size: 0.7rem;
+  .select-input {
+    img {
+      filter: brightness(3) saturate(0%);
+      top: 25%;
+      right: 0.5rem;
+    }
+    .placeholder {
+      .select-field {
+        color: var(--disabled);
+        font-weight: 600;
+      }
+      img {
+        filter: brightness(0) saturate(100%) invert(64%) sepia(4%) saturate(540%) hue-rotate(201deg)
+          brightness(88%) contrast(85%);
+      }
+    }
+  }
+  .select-field {
+    background-color: var(--deep-blue-300);
+    color: var(--white);
+    border: none;
+    border-radius: 3px;
+    padding: 0.25rem;
+    outline: none;
+    min-height: 15px;
+    min-width: 150px;
+    &:active,
+    &:focus {
+      border: none;
+    }
+  }
+
+  .select-options {
+    background-color: var(--deep-blue-300);
+    border-bottom-left-radius: 0.25rem;
+    border-bottom-right-radius: 0.25rem;
+    margin-top: 2px;
+    .select-option {
+      cursor: pointer;
+      padding: 0.25rem 0.5rem;
+      &:hover {
+        background-color: var(--deep-blue-100);
+        border-radius: 0.25rem;
+        color: var(--white);
+      }
+    }
+  }
+}

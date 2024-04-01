@@ -1,0 +1,15 @@
+.sidebar-menu {
+  background-color: var(--deep-blue-200);
+  color: var(--white);
+  width: 80px;
+  a {
+    cursor: pointer;
+    color: var(--white);
+    padding: 0.5rem 0.5rem;
+    display: flex;
+    justify-content: center;
+    &:hover {
+      background-color: var(--deep-blue-400);
+    }
+  }
+}
