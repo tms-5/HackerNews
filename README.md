@@ -1,64 +1,78 @@
-# Neoway-test
+# Hacker News Integration
 
-This template should help get you started developing with Vue 3 in Vite.
+o projeto Hacker News Integration é uma aplicação Vue.js que interage com a API do Hacker News para exibir as top stories e permite aos usuários favoritá-las. Os dados não persistem quando a página é atualizada.
 
-## Recommended IDE Setup
+## Pré-requisitos
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+Antes de iniciar, certifique-se de ter os seguintes softwares instalados em sua máquina:
 
-## Type Support for `.vue` Imports in TS
+- Node.js (versão recomendada: 14.x ou superior)
+- npm ou yarn
+- Git
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Configuração do Ambiente
 
-## Customize configuration
+Clone o repositório do projeto para a máquina local usando:
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+- git clone https://github.com/tms-5/HackerNews
+- cd nome-do-projeto
 
-## Project Setup
+Instale as dependências do projeto com npm ou yarn:
 
-```sh
 npm install
-```
+#ou
+yarn install
 
-### Compile and Hot-Reload for Development
+## Executando o Projeto
 
-```sh
+Para iniciar o servidor de desenvolvimento, execute:
+
 npm run dev
-```
+#ou
+yarn dev
 
-### Type-Check, Compile and Minify for Production
+Acesse `http://localhost:5173` em seu navegador para ver a aplicação em execução.
 
-```sh
-npm run build
-```
+## Estrutura de Pastas
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+Visão geral de como as pastas estão organizadas no projeto:
 
-```sh
-npm run test:unit
-```
+├─ node_modules/
+├─ src/
+│ ├─ assets/
+│ ├─ components/
+│ │ ├─ appComponents/
+│ │ ├─ globalComponents/
+│ │ │ ├─ ...
+│ │ │ └─ MyComponent/
+│ │ │ ├─ MyComponent.vue
+│ │ │ ├─ MyComponent.test.ts
+│ │ └─ └─ style.scss
+│ ├─ services/
+│ ├─ store/
+│ │ └─ modules
+│ ├─ views/
+│ ├─ App.vue
+│ └─ main.ts
+├─ package.json
+├─ README.md
+├─ svelte.config.js
+├─ vite.config.ts
+└─ ...
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+## Testes
 
-```sh
-# Install browsers for the first run
-npx playwright install
+Os testes são escritos usando Playwright. Para executar os testes, use:
 
-# When testing on CI, must build the project first
-npm run build
+npm run test
+#ou
+yarn test
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+## Tecnologias Utilizadas
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- Vue.js
+- Vuex para gerenciamento de estado
+- Vue Router para roteamento
+- Playwright para testes end-to-end
+- Sass/SCSS para estilos
+- Axios para chamadas HTTP
