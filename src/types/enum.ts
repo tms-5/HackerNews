@@ -11,3 +11,9 @@ export enum Style {
   Secondary = 'secondary',
   Tertiary = 'tertiary'
 }
+
+export enum Size {
+  Small = 'small',
+  Medium = 'medium',
+  Large = 'large'
+}

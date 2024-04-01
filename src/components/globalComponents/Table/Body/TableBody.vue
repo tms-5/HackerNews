@@ -2,11 +2,13 @@
 import { defineComponent } from 'vue'
 import TableRow from '../Row/TableRow.vue'
 import { type TableHeaderInterface } from '@/types/global'
+import Loading from '@/components/globalComponents/Loading/LoadingComponent.vue'
 
 export default defineComponent({
   name: 'TableBody',
   components: {
-    TableRow
+    TableRow,
+    Loading
   },
   props: {
     rows: {
@@ -22,7 +24,7 @@ export default defineComponent({
 </script>
 <template>
   <div class="data-table-body">
-    <div v-if="!rows" class="c-white">Loading</div>
+    <Loading v-if="!rows" />
     <TableRow v-for="(row, index) in rows" :key="index" :row="row" :headers="headers" v-else />
   </div>
 </template>
