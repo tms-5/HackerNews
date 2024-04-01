@@ -20,29 +20,34 @@ export default defineComponent({
       required: true
     }
   },
-  emits: ['update:value'],
-  setup(props, { emit }) {
+  emits: ['update:value', 'onChange'],
+  setup(props) {
     const selectedHeader = ref(props.value.key)
     const searchText = ref(props.value.text)
     const options = props.headers.map((header) => ({ label: header.label, value: header.key }))
 
-    const updateValue = () => {
-      emit('update:value', { key: selectedHeader.value, text: searchText.value })
+    const changeHeader = (header: string) => {
+      selectedHeader.value = header
     }
 
     return {
       selectedHeader,
       searchText,
-      updateValue,
       search,
-      options
+      options,
+      changeHeader
     }
   }
 })
 </script>
 <template>
   <div class="table-search d-flex">
-    <SelectComponent :options="options" placeholder="Select a option to filter" />
+    <SelectComponent
+      :options="options"
+      placeholder="Select a option to filter"
+      v-model="selectedHeader"
+      @onChange="changeHeader"
+    />
     <form class="p-relative d-flex align-center ml-1r">
       <img :src="search" alt="search" width="13" class="p-absolute pl-1" />
       <input

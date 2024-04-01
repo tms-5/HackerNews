@@ -35,7 +35,6 @@ export default defineComponent({
       if (!props.rows) return undefined
       let processedRows = [...props.rows]
 
-      // Sorting
       if (sortState.order !== 0 && sortState.key) {
         processedRows.sort((a, b) => {
           if (a[sortState.key] < b[sortState.key]) return sortState.order * -1
@@ -44,8 +43,7 @@ export default defineComponent({
         })
       }
 
-      // Filtering
-      if (searchValue.value.text.trim()) {
+      if (searchValue.value.text.trim() && searchValue.value.key) {
         processedRows = processedRows.filter((row) =>
           row[searchValue.value.key]
             ?.toString()

@@ -24,7 +24,7 @@ export default defineComponent({
       default: 'Select an option'
     }
   },
-  emits: ['update:value'],
+  emits: ['onChange'],
   setup(props, { emit }) {
     const showOptions = ref(false)
     const selectedValue = ref(props.value)
@@ -33,7 +33,7 @@ export default defineComponent({
     const updateValue = (option: string, label: string) => {
       selectedValue.value = option
       selectedLabel.value = label
-      emit('update:value', option)
+      emit('onChange', option)
     }
 
     const toggleOptions = () => {
