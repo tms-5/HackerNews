@@ -1,4 +1,4 @@
-import type { State } from '@/store/modules/hackerNews'
+import type { State } from '@/types/tableHackerNews'
 import ServicesAPI from './api.service'
 import { Store } from 'vuex'
 import type { StoryHackerNews } from '@/types/tableHackerNews'

@@ -11,7 +11,7 @@ export default {
     }
   },
 
-  SET_STORIES(state: { stories: StoryHackerNews[] }, payload: StoryHackerNews[]) {
+  SET_STORIES(state: { stories: StoryHackerNews[] | undefined }, payload: StoryHackerNews[]) {
     state.stories = payload
   }
 }

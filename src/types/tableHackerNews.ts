@@ -1,6 +1,6 @@
 export interface State {
   stories: StoryHackerNews[] | undefined
-  favorites: string[]
+  favorites: number[]
 }
 
 export interface StoryHackerNews {
