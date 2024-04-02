@@ -1,0 +1,1 @@
+.button-component{padding:.25rem .5rem;font-size:.6rem;font-weight:500;border-radius:.5rem;cursor:pointer;border:none}.button-component.button--default{color:var(--disabled);background-color:var(--deep-blue-300)}.button-component.button--default:hover{background-color:var(--deep-blue-300);color:var(--deep-blue-100);font-weight:600}
