@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "type": "module",
+    "homepage": "https://tms-5.github.io/HackerNews/",
     "scripts": {
         "dev": "vite",
         "build": "npm run type-check && npm run build-only",
