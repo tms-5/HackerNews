@@ -26,8 +26,23 @@ describe('TableSearch', () => {
 
     const input = wrapper.find('input')
     await input.setValue('test')
-    expect(wrapper.emitted()['update:value']).toBeTruthy()
-    expect(wrapper.emitted()['update:value'][0][0]).toEqual({ key: '', text: 'test' })
+    const emittedEvents = wrapper.emitted()
+
+    const updateValueEvents = emittedEvents['update:value']
+
+    expect(updateValueEvents).toBeTruthy()
+    if (updateValueEvents && Array.isArray(updateValueEvents[0])) {
+      const eventPayload = updateValueEvents[0][0]
+
+      if (
+        typeof eventPayload === 'object' &&
+        eventPayload !== null &&
+        'key' in eventPayload &&
+        'text' in eventPayload
+      ) {
+        expect(eventPayload).toEqual({ key: '', text: 'test' })
+      }
+    }
   })
 
   it('updates selectedHeader when an option is selected', async () => {
