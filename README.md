@@ -2,6 +2,10 @@
 
 o projeto Hacker News Integration é uma aplicação SPA (Single Page Application) que utiliza o Vue.js e interage com a API do Hacker News para exibir as top 100 stories e permite aos usuários favoritá-las, além de mostrar os detalhes da story. Os dados não persistem quando a página é atualizada.
 
+## Demo
+![ezgif-1-fa8da5d8c5](https://github.com/tms-5/HackerNews/assets/29607985/705c94f8-c5f4-4f94-b5ba-0c4a18de9718)
+
+
 ## Pré-requisitos
 
 Antes de iniciar, certifique-se de ter os seguintes softwares instalados em sua máquina:
