@@ -37,6 +37,7 @@ Acesse `http://localhost:5173` em seu navegador para ver a aplicação em execu�
 
 Visão geral de como as pastas estão organizadas no projeto:
 
+```
 .
 ├── node_modules/
 ├── src/
@@ -59,7 +60,7 @@ Visão geral de como as pastas estão organizadas no projeto:
 ├── tsconfig.json
 ├── vitest.config.ts
 └── ...
-
+```
 
 ## Testes
 
