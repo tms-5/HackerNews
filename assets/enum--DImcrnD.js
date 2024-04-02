@@ -1,0 +1,1 @@
+const m=(r,t)=>{const a=r.__vccOpts||r;for(const[s,n]of t)a[s]=n;return a};var c=(r=>(r.XSMALL="xsmall",r.SMALL="small",r.MEDIUM="medium",r.LARGE="large",r))(c||{}),e=(r=>(r.Default="default",r.Primary="primary",r.Secondary="secondary",r.Tertiary="tertiary",r))(e||{});export{e as S,c as T,m as _};
