@@ -37,28 +37,29 @@ Acesse `http://localhost:5173` em seu navegador para ver a aplicação em execu�
 
 Visão geral de como as pastas estão organizadas no projeto:
 
-├─ node_modules/
-├─ src/
-│ ├─ assets/
-│ ├─ components/
-│ │ ├─ appComponents/
-│ │ ├─ globalComponents/
-│ │ │ ├─ ...
-│ │ │ └─ MyComponent/
-│ │ │ ├─ MyComponent.vue
-│ │ │ ├─ MyComponent.test.ts
-│ │ └─ └─ style.scss
-│ ├─ services/
-│ ├─ store/
-│ │ └─ modules
-│ ├─ views/
-│ ├─ App.vue
-│ └─ main.ts
-├─ package.json
-├─ README.md
-├─ tsconfig.json
-├─ vitest.config.ts
-└─ ...
+.
+├── node_modules/
+├── src/
+│   ├── assets/
+│   ├── components/
+│   │   ├── appComponents/
+│   │   ├── globalComponents/
+│   │   │   └── MyComponent/
+│   │   │       ├── MyComponent.vue
+│   │   │       ├── MyComponent.test.ts
+│   │   │       └── style.scss
+│   ├── services/
+│   ├── store/
+│   │   └── modules/
+│   ├── views/
+│   ├── App.vue
+│   └── main.ts
+├── package.json
+├── README.md
+├── tsconfig.json
+├── vitest.config.ts
+└── ...
+
 
 ## Testes
 
