@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest'
 import { mount } from '@vue/test-utils'
 import TableRow from './TableRow.vue'
 import { TableColSize } from '@/types/enum'
+import ButtonComponent from '../../Button/ButtonComponent.vue'
 
 describe('TableRow', () => {
   const headers = [
@@ -10,7 +11,7 @@ describe('TableRow', () => {
   ]
   const row = {
     name: 'John Doe',
-    action: { component: TableRow, props: { text: 'Click me' } }
+    action: { component: ButtonComponent, props: { buttonLabel: 'Click me' } }
   }
 
   it('renders row data as text', () => {
@@ -30,7 +31,7 @@ describe('TableRow', () => {
       props: { row, headers }
     })
 
-    const customComponent = wrapper.findComponent(TableRow)
+    const customComponent = wrapper.findComponent(ButtonComponent)
     expect(customComponent.exists()).toBe(true)
     expect(customComponent.text()).toBe('Click me')
   })
