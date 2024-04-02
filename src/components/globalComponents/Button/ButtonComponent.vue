@@ -1,7 +1,8 @@
 <script lang="ts">
-import { Style } from '@/types/enum'
 import './style.scss'
+import { Style } from '@/types/enum'
 import type { PropType } from 'vue'
+
 export default {
   props: {
     buttonLabel: {
@@ -32,8 +33,9 @@ export default {
   }
 }
 </script>
+
 <template>
-  <button :class="['button-component', 'button--' + style]" @click="onClick()">
+  <button :class="['button-component', buttonClass, `button--${style}`]" @click="clickHandler">
     <img v-if="buttonImage" :src="buttonImage" alt="Button Image" />
     <span>{{ buttonLabel }}</span>
   </button>

@@ -62,7 +62,7 @@ Visão geral de como as pastas estão organizadas no projeto:
 
 ## Testes
 
-Os testes são escritos usando Playwright. Para executar os testes, use:
+Os testes são escritos usando Vitest. Para executar os testes, use:
 
 npm run test
 #ou
@@ -73,6 +73,6 @@ yarn test
 - Vue.js
 - Vuex para gerenciamento de estado
 - Vue Router para roteamento
-- Playwright para testes end-to-end
+- Vitest para testes end-to-end
 - Sass/SCSS para estilos
 - Axios para chamadas HTTP
