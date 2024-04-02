@@ -2,7 +2,7 @@
 import { useStore } from 'vuex'
 import { defineComponent, computed, watch } from 'vue'
 import { type StoryHackerNews } from '@/types/tableHackerNews'
-import TableSkeleton from '@/components/appComponents/TableHackerNews/Table/TableSkeleton.vue'
+import TableSkeleton from '@/components/appComponents/TableHackerNews/TableSkeleton/TableSkeleton.vue'
 import TableHackerNewsActions from './Actions/TableHackerNewsActions.vue'
 
 export default defineComponent({
@@ -25,7 +25,7 @@ export default defineComponent({
     )
 
     watch(rows, (newRows) => {
-      emit('change-number', newRows.length)
+      emit('change-number', newRows.length ?? 0)
     })
 
     return {

@@ -1,15 +1,3 @@
-<template>
-  <div :class="['tab-title d-flex', isActive ? 'active' : '']" @click="click(index)">
-    {{ tab.label }}
-    <div class="rows-quantity">
-      {{ elementsNumber }}
-    </div>
-  </div>
-  <div :class="['tab-content', isActive ? 'active' : '']">
-    <component :is="tab.component" @change-number="changeNumber" />
-  </div>
-</template>
-
 <script lang="ts">
 import { defineComponent, ref } from 'vue'
 
@@ -51,3 +39,14 @@ export default defineComponent({
   }
 })
 </script>
+<template>
+  <div :class="['tab-title d-flex', isActive ? 'active' : '']" @click="click(index)">
+    {{ tab.label }}
+    <div class="rows-quantity">
+      {{ elementsNumber }}
+    </div>
+  </div>
+  <div :class="['tab-content', isActive ? 'active' : '']">
+    <component :is="tab.component" @change-number="changeNumber" />
+  </div>
+</template>

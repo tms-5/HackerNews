@@ -1,17 +1,3 @@
-<template>
-  <div class="tabs-container">
-    <SubTab
-      v-for="(tab, index) in tabs"
-      :tab="tab"
-      :key="index"
-      :index="index"
-      :click="handleClick"
-      :label="tab.label"
-      :isActive="selectedTab === index"
-    />
-  </div>
-</template>
-
 <script lang="ts">
 import './style.scss'
 import { defineComponent, ref } from 'vue'
@@ -43,3 +29,16 @@ export default defineComponent({
   }
 })
 </script>
+<template>
+  <div class="tabs-container">
+    <SubTab
+      v-for="(tab, index) in tabs"
+      :tab="tab"
+      :key="index"
+      :index="index"
+      :click="handleClick"
+      :label="tab.label"
+      :isActive="selectedTab === index"
+    />
+  </div>
+</template>

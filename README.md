@@ -56,8 +56,8 @@ Visão geral de como as pastas estão organizadas no projeto:
 │ └─ main.ts
 ├─ package.json
 ├─ README.md
-├─ svelte.config.js
-├─ vite.config.ts
+├─ tsconfig.json
+├─ vitest.config.ts
 └─ ...
 
 ## Testes

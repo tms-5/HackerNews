@@ -28,7 +28,7 @@ export default defineComponent({
     const favoritedStory = computed(() => favorites.value.includes(props.story.id))
 
     function navigateToStory(id: number) {
-      router.push({ name: 'story', params: { id } })
+      router && router.push({ name: 'story', params: { id } })
     }
 
     function toggleFavorite(story: StoryHackerNews) {
