@@ -1,6 +1,6 @@
 <script lang="ts">
 import './style.scss'
-import { defineComponent, ref } from 'vue'
+import { defineComponent, ref, watch, type PropType } from 'vue'
 import SelectComponent from '@/components/globalComponents/Select/SelectComponent.vue'
 import type { TableHeaderInterface } from '@/types/global'
 import search from '@/assets/icons/search.svg'
@@ -18,16 +18,21 @@ export default defineComponent({
     headers: {
       type: Array as () => TableHeaderInterface[],
       required: true
-    }
+    },
+    onHandleSearch: { type: Function as PropType<(key: string, text: string) => void>, required: true }
   },
-  emits: ['update:value', 'onChange'],
-  setup(props) {
+  setup(props,) {
     const selectedHeader = ref(props.value.key)
     const searchText = ref(props.value.text)
     const options = props.headers.map((header) => ({ label: header.label, value: header.key }))
 
-    const changeHeader = (header: string) => {
-      selectedHeader.value = header
+
+    watch([selectedHeader, searchText], ([newSelectedHeader, newSearchText]) => {
+      onHandleSearch(newSelectedHeader, newSearchText);
+    });
+
+    function onHandleSearch(key: string, text: string) {
+      props.onHandleSearch(key, text);
     }
 
     return {
@@ -35,29 +40,17 @@ export default defineComponent({
       searchText,
       search,
       options,
-      changeHeader
     }
   }
 })
 </script>
 <template>
   <div class="table-search d-flex">
-    <SelectComponent
-      :options="options"
-      placeholder="Select a option to filter"
-      v-model="selectedHeader"
-      @onChange="changeHeader"
-    />
+    <SelectComponent :options="options" placeholder="Select a option to filter" v-model="selectedHeader" />
     <form class="p-relative d-flex align-center ml-1r">
       <img :src="search" alt="search" width="13" class="p-absolute pl-1" />
-      <input
-        class="search-input b-none"
-        type="text"
-        v-model="searchText"
-        @input="$emit('update:value', { key: selectedHeader, text: searchText })"
-        aria-label="Filter projects"
-        placeholder="Filter projects..."
-      />
+      <input class="search-input b-none" type="text" v-model="searchText" aria-label="Filter projects"
+        placeholder="Filter projects..." />
     </form>
   </div>
 </template>

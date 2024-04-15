@@ -12,25 +12,31 @@ export default defineComponent({
     const router = useRouter()
     const storyId = parseInt(route.params.id as string)
 
-    onMounted(() => {
-      if (storyId) {
-        const hackersNews = HackersNews.getInstance()
-        try {
-          const storyData = hackersNews.findStoryById(storyId)
-          story.value = storyData || null
-        } catch (error) {
-          console.error('Erro ao buscar a história:', error)
-        }
-      }
-    })
+    function fetchStory() {
+      const hackersNews = HackersNews.getInstance();
+      return hackersNews.findStoryById(storyId);
+    }
 
-    function goToHome() {
+    onMounted(async () => {
+      try {
+        const storyData = await fetchStory();
+        if (storyData) {
+          story.value = storyData;
+        } else {
+          goBack();
+        }
+      } catch (error) {
+        goBack();
+      }
+    });
+
+    function goBack() {
       router.go(-1)
     }
 
     return {
       story,
-      goToHome
+      goBack
     }
   },
   components: {
@@ -40,7 +46,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <ButtonComponent buttonLabel="Voltar" @click="goToHome" />
+  <ButtonComponent buttonLabel="Voltar" @click="goBack" />
   <div v-if="story" class="c-white">
     <h2>{{ story.title }}</h2>
     <p>Por: {{ story.by }}</p>

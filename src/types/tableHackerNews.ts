@@ -1,5 +1,5 @@
 export interface State {
-  stories: StoryHackerNews[] | undefined
+  stories?: StoryHackerNews[]
   favorites: number[]
 }
 

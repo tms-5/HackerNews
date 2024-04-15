@@ -25,8 +25,8 @@ export default defineComponent({
     )
 
     watch(rows, (newRows) => {
-      emit('change-number', newRows.length ?? 0)
-    })
+      emit('change-number', newRows?.length ?? 0)
+    }, { immediate: true })
 
     return {
       rows

@@ -56,10 +56,8 @@ export default defineComponent({
       <OutlinedHeart v-else />
     </div>
 
-    <button
-      @click="navigateToStory(story.id)"
-      class="b-none bg-transparent c-pointer data-table-button-details d-flex align-center justify-content-center"
-    >
+    <button @click="navigateToStory(story.id)"
+      class="b-none bg-transparent c-pointer data-table-button-details d-flex align-center justify-content-center">
       Details <img :src="arrow" alt="Right arrow" width="8" />
     </button>
   </div>

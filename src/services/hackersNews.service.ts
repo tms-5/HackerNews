@@ -6,6 +6,7 @@ import type { StoryHackerNews } from '@/types/tableHackerNews'
 class HackersNews extends ServicesAPI {
   private static instance: HackersNews
   private static store: Store<State>
+  private static active_page: 'stories' | 'favorites' = 'stories'
 
   private constructor() {
     super()
@@ -26,6 +27,14 @@ class HackersNews extends ServicesAPI {
   static initialize(store: Store<State>) {
     HackersNews.store = store
     store.dispatch('hackerNews/fetchTopStories')
+  }
+
+  set activePage(page: 'stories' | 'favorites') {
+    HackersNews.active_page = page
+  }
+
+  get activePage() {
+    return HackersNews.active_page
   }
 
   getTopStories = async () => {

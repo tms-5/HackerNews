@@ -19,28 +19,30 @@ export default defineComponent({
       },
       required: true
     },
-    click: {
-      type: Function,
-      required: true
-    },
     index: {
       type: Number,
       required: true
     }
   },
-  setup() {
+  emits: ['handle-click'],
+  setup(props, { emit }) {
     const elementsNumber = ref(0)
 
     const changeNumber = (index: number) => {
       elementsNumber.value = index
     }
 
-    return { changeNumber, elementsNumber }
+    const changeTab = (name: string) => {
+      emit('handle-click', name);
+    }
+
+
+    return { changeNumber, elementsNumber, changeTab }
   }
 })
 </script>
 <template>
-  <div :class="['tab-title d-flex', isActive ? 'active' : '']" @click="click(index)">
+  <div :class="['tab-title d-flex', isActive ? 'active' : '']" @click="changeTab(tab.name)">
     {{ tab.label }}
     <div class="rows-quantity">
       {{ elementsNumber }}

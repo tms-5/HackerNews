@@ -3,6 +3,7 @@ import './style.scss'
 import arrow from '@/assets/icons/arrow.svg'
 import { defineComponent, ref } from 'vue'
 import type { SelectOptionInterface } from '@/types/global'
+import { emit } from 'process'
 
 export default defineComponent({
   name: 'SelectComponent',
@@ -22,9 +23,9 @@ export default defineComponent({
     placeholder: {
       type: String,
       default: 'Select an option'
-    }
+    },
   },
-  emits: ['onChange'],
+  emits: ['update:modelValue'],
   setup(props, { emit }) {
     const showOptions = ref(false)
     const selectedValue = ref(props.value)
@@ -33,7 +34,7 @@ export default defineComponent({
     const updateValue = (option: string, label: string) => {
       selectedValue.value = option
       selectedLabel.value = label
-      emit('onChange', option)
+      emit('update:modelValue', selectedValue.value)
     }
 
     const toggleOptions = () => {
@@ -62,14 +63,8 @@ export default defineComponent({
         <img :src="arrow" alt="arrow" width="12" class="p-absolute" />
       </div>
       <div class="select-options p-absolute w-100">
-        <div
-          v-show="showOptions"
-          v-for="option in options"
-          :key="option.value"
-          :value="option.value"
-          class="select-option d-grid"
-          @click="updateValue(option.value, option.label)"
-        >
+        <div v-show="showOptions" v-for="option in options" :key="option.value" :value="option.value"
+          class="select-option d-grid" @click="updateValue(option.value, option.label)">
           {{ option.label }}
         </div>
       </div>
