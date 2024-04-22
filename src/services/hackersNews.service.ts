@@ -8,7 +8,7 @@ class HackersNews extends ServicesAPI {
   private static store: Store<State>
   private static active_page: 'stories' | 'favorites' = 'stories'
 
-  private constructor() {
+  constructor() {
     super()
   }
 
@@ -18,15 +18,11 @@ class HackersNews extends ServicesAPI {
     }
     if (!HackersNews.instance && HackersNews.store) {
       HackersNews.instance = new HackersNews()
+      HackersNews.instance.getStories()
     } else if (!HackersNews.store) {
       throw new Error('HackersNews requires a Vuex store')
     }
     return HackersNews.instance
-  }
-
-  static initialize(store: Store<State>) {
-    HackersNews.store = store
-    store.dispatch('hackerNews/fetchTopStories')
   }
 
   set activePage(page: 'stories' | 'favorites') {
@@ -35,6 +31,14 @@ class HackersNews extends ServicesAPI {
 
   get activePage() {
     return HackersNews.active_page
+  }
+
+  getStories = async () => {
+    const stories = await this.getTopStories()
+    const storiesWithIndex = stories.map((story: any, index) => {
+      return { ...story, position: index + 1 }
+    })
+    HackersNews.store.dispatch('hackerNews/setStories', storiesWithIndex)
   }
 
   getTopStories = async () => {

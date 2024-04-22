@@ -1,23 +1,18 @@
-import HackersNews from '@/services/hackersNews.service'
+import type { State, StoryHackerNews } from '@/types/tableHackerNews'
 
 export default {
-  addToFavorites({ commit, state }: { commit: Function; state: any }, storyId: number) {
+  addToFavorites({ commit, state }: { commit: Function; state: State }, storyId: number) {
     if (!state.favorites.includes(storyId)) {
       commit('ADD_FAVORITES', storyId)
     }
   },
-  removeFromFavorites({ commit, state }: { commit: Function; state: any }, storyId: number) {
+  removeFromFavorites({ commit, state }: { commit: Function; state: State }, storyId: number) {
     if (state.favorites.includes(storyId)) {
       commit('REMOVE_FAVORITES', storyId)
     }
   },
 
-  async fetchTopStories({ commit }: { commit: Function }) {
-    const hackersNews = HackersNews.getInstance()
-    const stories = await hackersNews.getTopStories()
-    const storiesWithIndex = stories.map((story: any, index) => {
-      return { ...story, position: index + 1 }
-    })
-    commit('SET_STORIES', storiesWithIndex)
+  setStories({ commit }: { commit: Function }, stories: StoryHackerNews[]) {
+    commit('SET_STORIES', stories)
   }
 }

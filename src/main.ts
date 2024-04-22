@@ -4,7 +4,7 @@ import router from './router'
 import store from './store/index'
 import HackersNews from './services/hackersNews.service'
 
-HackersNews.initialize(store)
+HackersNews.getInstance(store)
 
 const app = createApp(App)
 app.use(store)
