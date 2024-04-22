@@ -1,8 +1,6 @@
-import type { StoryHackerNews } from '@/types/tableHackerNews'
+import type { State, StoryHackerNews } from '@/types/tableHackerNews'
 
 export default {
-  getAllStories: (state: {
-    stories: StoryHackerNews[] | undefined
-  }): StoryHackerNews[] | undefined => state.stories,
-  getFavorites: (state: { favorites: number[] }): number[] => state.favorites
+  getAllStories: (state: State): StoryHackerNews[] | undefined => state.stories,
+  getFavorites: (state: State): number[] => state.favorites
 }
